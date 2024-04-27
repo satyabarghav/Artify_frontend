@@ -16,7 +16,7 @@ export default function ViewUsers() {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get("http://localhost:2014/viewUsers");
+        const response = await axios.get("https://artify-server-enba.onrender.com/viewUsers");
 
         if (response.status === 200) {
           setUsers(response.data);

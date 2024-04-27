@@ -12,7 +12,7 @@ export default function Verified() {
   useEffect(() => {
     const verifyUser = async () => {
       try {
-        const response = await axios.get(`http://localhost:2014/${userId}/verify/${token}`); // Use Axios to make the GET request
+        const response = await axios.get(`https://artify-server-enba.onrender.com/${userId}/verify/${token}`); // Use Axios to make the GET request
 
         if (response.status === 200) {
           setVerified(true);

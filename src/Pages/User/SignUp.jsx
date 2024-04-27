@@ -31,7 +31,7 @@ const AuthPage = () => {
         password: password,
       };
       const response = await axios.post(
-        "http://localhost:2014/register",
+        "https://artify-server-enba.onrender.com/register",
         formData
       );
       if (response.status === 201) {
