@@ -5,6 +5,7 @@ import {
   CardContent,
   Card,
 } from "@/components/ui/card";
+import config from "@/config";
 import { useState } from "react";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
@@ -27,7 +28,7 @@ export default function Component() {
       };
 
       const response = await axios.post(
-        "http://localhost:2014/login",
+        `${config.url}/login`,
         formData
       );
       console.log(response.data);

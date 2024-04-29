@@ -7,7 +7,7 @@ import {
 } from "@/components/ui/select";
 
 import { useEffect, useState } from "react";
-
+import config from "@/config";
 import axios from "axios";
 import { Toaster, toast } from "sonner";
 import SellerNavbar from "../Navbar/SellerNav";
@@ -74,7 +74,7 @@ export default function ListItems() {
       console.log(userEmail);
       // Send the form data to the server using Axios
       const response = await axios.post(
-        "http://localhost:2014/listItems",
+        `${config.url}/listItems`,
         formData,
         {
           headers: {

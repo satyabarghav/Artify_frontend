@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { Toaster, toast } from 'sonner'
 // import { Toaster } from "@/components/ui/sonner";
-
+import config from "@/config";
 const AuthPage = () => {
   const [message, setMessage] = useState("");
   const [userName, setUserName] = useState("");
@@ -31,7 +31,7 @@ const AuthPage = () => {
         password: password,
       };
       const response = await axios.post(
-        "http://localhost:2014/register",
+        `${config.url}/register`,
         formData
       );
       if (response.status === 201) {

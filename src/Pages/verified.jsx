@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import Confetti from "react-confetti";
 import { useWindowSize as useWindowSizeHook } from "@uidotdev/usehooks";
 import axios from "axios"; // Import Axios
-
+import config from "@/config";
 export default function Verified() {
   const [verified, setVerified] = useState(false);
   const { userId, token } = useParams();
@@ -12,7 +12,7 @@ export default function Verified() {
   useEffect(() => {
     const verifyUser = async () => {
       try {
-        const response = await axios.get(`http://localhost:2014/${userId}/verify/${token}`); // Use Axios to make the GET request
+        const response = await axios.get(`${config.url}/${userId}/verify/${token}`); // Use Axios to make the GET request
 
         if (response.status === 200) {
           setVerified(true);

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import config from "@/config";
 import {
   Table,
   TableBody,
@@ -16,7 +17,7 @@ export default function ViewUsers() {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get("http://localhost:2014/viewUsers");
+        const response = await axios.get(`${config.url}/viewUsers`);
 
         if (response.status === 200) {
           setUsers(response.data);
@@ -34,7 +35,7 @@ export default function ViewUsers() {
   const deleteUser = async (id) => {
     try {
       console.log("Deleting user with id:", id)
-      const response = await axios.delete(`http://localhost:2014/deleteUser/${id}`);
+      const response = await axios.delete(`${config.url}/deleteUser/${id}`);
       if (response.status === 200) {
         console.log("User deleted successfully");
       } else {
