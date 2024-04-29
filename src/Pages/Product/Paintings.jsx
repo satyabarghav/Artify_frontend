@@ -21,7 +21,7 @@ export default function Shop() {
 
   const getData = async () => {
     try {
-      const response = await axios.get("https://artify-server-enba.onrender.com/getItems");
+      const response = await axios.get("http://localhost:2014/getItems");
       setProductData(response.data);
     } catch (error) {
       console.error('Error fetching product data:', error);

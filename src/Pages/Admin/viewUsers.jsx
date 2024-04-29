@@ -16,7 +16,7 @@ export default function ViewUsers() {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get("https://artify-server-enba.onrender.com/viewUsers");
+        const response = await axios.get("http://localhost:2014/viewUsers");
 
         if (response.status === 200) {
           setUsers(response.data);
@@ -34,7 +34,7 @@ export default function ViewUsers() {
   const deleteUser = async (id) => {
     try {
       console.log("Deleting user with id:", id)
-      const response = await axios.delete(`http://localhost:2014/users/${id}`);
+      const response = await axios.delete(`http://localhost:2014/deleteUser/${id}`);
       if (response.status === 200) {
         console.log("User deleted successfully");
       } else {
@@ -48,7 +48,7 @@ export default function ViewUsers() {
   return (
     <div className="flex flex-col justify-center items-center min-h-screen mx-9">
       <Table>
-        <TableCaption>A list of your recent invoices.</TableCaption>
+        <TableCaption>A list of your Users</TableCaption>
         <TableHeader>
           <TableRow>
             <TableHead className="w-[100px]">User ID</TableHead>

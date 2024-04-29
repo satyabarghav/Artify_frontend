@@ -5,6 +5,7 @@ import logo from "@/assets/Artify.png";
 import ShopNav from "@/Pages/Navbar/ShopNav";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { ProfileAvatar } from "../User/ProfileAvatar";
+import{ Link } from "react-router-dom";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -16,7 +17,9 @@ import {
 
 export default function SellerNavbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
+  const navigation = [
+    { name: "List Item", href: "/listitem" },
+  ];
   const switchToBuyer = () => {
     // Set user role to buyer in localStorage
     localStorage.setItem("userRole", "buyer");
@@ -49,6 +52,15 @@ export default function SellerNavbar() {
           </div>
           <div className="hidden lg:flex lg:gap-x-12">
             <ShopNav />
+            {navigation.map((item) => (
+              <Link
+                key={item.name}
+                to={item.href}
+                className="text-md font-semibold leading-6 text-gray-900"
+              >
+                {item.name}
+              </Link>
+            ))}
           </div>
           <div className="hidden gap-3 lg:flex lg:flex-1 lg:justify-end">
             <DropdownMenu>
@@ -99,6 +111,7 @@ export default function SellerNavbar() {
               <div className="-my-6 divide-y divide-gray-500/10">
                 <div className="space-y-2 py-6">
                   <ShopNav />
+                  <a href="/listitem" className="text-gray-900">List Item</a>
                 </div>
                 <div className="py-6">
                   <Avatar>

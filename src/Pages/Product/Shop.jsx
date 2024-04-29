@@ -6,7 +6,6 @@ import AdminNavbar from "../Navbar/AdminNavbar";
 import SellerNavbar from "../Navbar/SellerNav";
 import CardDemo from "./CardDemo";
 import axios from "axios";
-
 export default function Shop() {
   const [userRole, setUserRole] = useState("");
   const [productData, setProductData] = useState([]);
@@ -21,7 +20,7 @@ export default function Shop() {
 
   const getData = async () => {
     try {
-      const response = await axios.get("https://artify-server-enba.onrender.com/getItems");
+      const response = await axios.get("http://localhost:2014/getItems");
       setProductData(response.data);
     } catch (error) {
       console.error('Error fetching product data:', error);

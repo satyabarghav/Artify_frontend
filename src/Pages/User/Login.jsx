@@ -27,7 +27,7 @@ export default function Component() {
       };
 
       const response = await axios.post(
-        "https://artify-server-enba.onrender.com/login",
+        "http://localhost:2014/login",
         formData
       );
       console.log(response.data);
